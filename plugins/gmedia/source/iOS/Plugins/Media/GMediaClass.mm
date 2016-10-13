@@ -232,14 +232,17 @@
 }
 
 -(void)itemDidFinishPlaying:(NSNotification *) notification {
-    [self stop];
-    gmedia_onMediaCompleted();
+    	[self stop];
+	gmedia_onMediaCompleted();
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
 	if(!self.force)
-        [self stop];
+	{
+		[self stop];
+		gmedia_onMediaCompleted();
+	}
 }
 
 -(BOOL)isPortrait{
